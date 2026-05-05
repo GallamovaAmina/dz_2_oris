@@ -64,8 +64,6 @@ public class ProductServiceImpl implements ProductService {
     public ProductDto updateProduct(Long id, ProductForm form) {
         Product product = productRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Product not found"));
-
-        // Обновляем минимум 1 атрибут (price)
         product.setPrice(form.getPrice());
         product.setName(form.getName());
         product.setDescription(form.getDescription());
